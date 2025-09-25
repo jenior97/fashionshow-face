@@ -30,7 +30,7 @@
   <video id="Robot Video" autoplay muted playsinline></video>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const videoName = urlParams.get('gif') || 'default'; // 파라미터 그대로 활용
+    const videoName = urlParams.get('video') || 'default'; // 파라미터 그대로 활용
     document.getElementById("emojiVideo").src = videoName + ".mp4";
   </script>
 </body>
