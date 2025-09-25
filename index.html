@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
@@ -27,6 +27,47 @@
     video.addEventListener('error', () => {
       console.error('Video error', video.error);
     });
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Robot Emoji</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;   /* 화면 꽉 차게 (잘릴 수 있음) */
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <video id="emojiVideo" autoplay muted playsinline></video>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('video') || 'default';
+    document.getElementById('emojiVideo').src = `${name}.mp4`;
   </script>
 </body>
 </html>
