@@ -1,37 +1,32 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Robot Emoji</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: #000000;
-      overflow: auto;
+      margin: 0; padding: 0; height: 100%;
+      background-color: #000; overflow: auto;
     }
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    video {
-      width: 820px;
-      object-fit: contain;
-      display: block;
-    }
+    body { display: flex; justify-content: center; align-items: center; }
+    video { width: 820px; object-fit: contain; display: block; }
   </style>
 </head>
 <body>
-  <video id="Robot Video" autoplay muted playsinline></video>
+  <video id="emojiVideo" autoplay muted playsinline></video>
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const videoName = urlParams.get('video') || 'default'; // 파라미터 그대로 활용
-    document.getElementById("emojiVideo").src = videoName + ".mp4";
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('video') || 'default';
+    const video = document.getElementById('emojiVideo');
+    video.src = `${name}.mp4`;
+
+    // 디버깅 도움: 404 등 오류 로깅
+    video.addEventListener('error', () => {
+      console.error('Video error', video.error);
+    });
   </script>
 </body>
 </html>
