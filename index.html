@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Robot Emoji</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #000000;
+      overflow: auto;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    video {
+      width: 820px;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <video id="Robot Video" autoplay muted playsinline></video>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const videoName = urlParams.get('gif') || 'default'; // 파라미터 그대로 활용
+    document.getElementById("emojiVideo").src = videoName + ".mp4";
+  </script>
+</body>
+</html>
